@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, *::after , *::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form{
+            width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #333;
+        }
+        .form-control{
+            width: 100%;
+            height: 40px;
+            background-color: orange;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .form-control input{
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+        }
+        .form-control p{
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            background-color: dodgerblue;
+            padding: 10px;
+            border-radius: 4px;
+            width: 120px;
+            transform: translate(10px, -50%);
+            transform: translate(0, -50%);
+        }
+        .form-control p::before{
+            content: "";
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            border-right-color: dodgerblue;
+            transform: translate(0, -50%);
+            transition: 0.3s;
+        }
+        .form-control input:focus + p{
+            opacity: 1;
+        }
+        .form button{
+            width: 100%; 
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <div class="form-control">
+            <input type="text" placeholder="username"/>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="form-control">
+            <input type="password" placeholder="password"/>
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
